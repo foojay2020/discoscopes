@@ -1,0 +1,103 @@
+scopes:
+  scope1:
+    name: CustomScope1
+
+    # Distributions
+    # distributions: aoj, aoj_openj9, corretto, dragonwell, graalvm_ce8, graalvm_ce11, graalvm_ce16, liberica, liberica_native, mandrel, microsoft, ojdk_build, openlogic, oracle, oracle_open_jdk, redhat, sap_machine, temurin, trava, zulu, zulu_prime
+    distributions: [zulu, microsoft]
+
+
+    # Scopes
+    # buildScope: build_of_openjdk, build_of_graalvm
+    # downloadScopes: directly, not_directly
+    # basicScopes: public
+    # usageScopes: free_to_use_in_production, license_needed_for_production
+    # match: any, all (match of scopes)
+    buildScopes: [build_of_openjdk]
+    downloadScopes: [directly]
+    match: all
+
+    # Version
+    # version: e.g. 11.0.9.1, 1.8.0_292, 8u292, 16-ea, 9..<10
+    version: 16.0.1
+
+
+    # Architectures
+    # architectures: aarch32, aarch64, amd64, arm, arm32, arm64, mips, ppc, ppc64el, ppc64le, ppc64, riscv64, s390, s390x, sparc, sparcv9, x64, x86-64, x86, i386, i486, i586, i686, x86-32
+    architectures: [x64]
+
+
+    # Archive Types
+    # archiveTypes: apk, cab, deb, dmg, exe, msi, pkg, rpm, tar, tar.gz, zip
+    archiveTypes: [tar.gz, zip]
+
+
+    # Package Types
+    # packageTypes: jdk, jre
+    packageTypes: [jdk, jre]
+
+
+    # Operating Systems
+    # operatingSystems: aix, alpine_linux, linux, linux_musl, macos, qnx, solaris, windows
+    operatingSystems: [windows, linux, macos]
+
+
+    # LibC Types
+    # libcTypes: glibc (linux), libc (macos), musl (linux), c_std_lib (windows)
+    libcTypes: [c_std_lib, glibc, libc]
+
+
+    # Release Status
+    # releaseStatus: ea, ga
+    releaseStatus: [ga]
+
+
+    # Terms of support
+    # termsOfSupport: sts (Short Term Stable), mts (Mid Term Stable), lts (Long Term Stable)
+    termsOfSupport: [sts, mts, lts]
+
+
+    # Bitness
+    # bitness: 32, 64
+    bitness: 64
+
+
+    # JavaFX bundled
+    # javafxBundled: true, false
+    javafxBundled: false
+
+
+    # Directly downloadable (can also be configure via scope)
+    # directlyDownloadable: true, false
+    directlyDownloadable: true
+
+
+    # Latest
+    # latest: overall, per_distro, per_version, available, all_of_version
+    latest: overall
+
+  scope2:
+    name: JavaFXScope
+    distributions: [ zulu, liberica, corretto ]
+    version: 16.0.1
+    architectures: [ x64 ]
+    archiveTypes: [ tar.gz, zip ]
+    packageTypes: [ jdk ]
+    operatingSystems: [ macos ]
+    javafxBundled: true
+
+  scope3:
+    name: Test
+    distributions: [ zulu ]
+    buildScopes: [ build_of_openjdk ]
+    downloadScopes: [ directly ]
+    match: all
+    version: 16.0.1
+    architectures: [ x64 ]
+    archiveTypes: [ tar.gz ]
+    packageTypes: [ jdk ]
+    operatingSystems: [ linux, macos ]
+    libcTypes: [ glibc, libc ]
+    releaseStatus: [ ga ]
+    termsOfSupport: [ sts, mts, lts ]
+    latest: available
