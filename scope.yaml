@@ -72,6 +72,11 @@ scopes:
     directlyDownloadable: true
 
 
+    # Signature available
+    # signatureAvailable: true, false
+    signatureAvailable: true
+    
+
     # Latest
     # latest: overall, per_distro, per_version, available, all_of_version
     latest: overall
